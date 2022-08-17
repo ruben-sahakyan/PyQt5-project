@@ -259,22 +259,28 @@ class AdminPanel(object):
         self.assessment.setPlaceholderText(_translate("MainWindow", "assessment"))
         self.addstbtn.setText(_translate("MainWindow", "add student"))
 
-
+        #back-button --> def backbutton line = 347
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
+        #change task - button --> def change_task_btn  line = 327
         self.changetaskbtn.clicked.connect(self.change_task_btn)
-        
+
+        #student list refresh -button --> def student_refresh_btn line = 284
         self.strefreshbtn.clicked.connect(self.student_refresh_btn)
 
+        #tasks list refresh - button --> def task_refresh_btn  line = 318
         self.taskrefreshbtn.clicked.connect(self.task_refresh_btn)
 
+        #delete task - button --> def delete_task_btn line = 339
         self.deletetaskbtn.clicked.connect(self.delete_task_btn)
 
+        #add student - button --> def add_student_btn line = 357
         self.addstbtn.clicked.connect(self.add_student_btn)
 
-
-
+    #st_lst (main_db.py def student_login)
+    #st_lst (main_db.py import st_lst)
+    #button strefreshbtn --> line = 270
     def student_refresh_btn(self):
         st_lst = student_login()
         self.studentslist.clear()
@@ -285,6 +291,7 @@ class AdminPanel(object):
 
 
 
+    #Double clicked - button --> line = 290
     def student_tasks_btn(self, item):
         self.taskslist.clear()
         self.current_user = item
@@ -293,7 +300,9 @@ class AdminPanel(object):
             self.taskslist.addItem(it[1])
         self.taskslist.itemDoubleClicked.connect(self.show_sts_task)
 
-        
+
+
+    #Double clicked - button --> line = 301
     def show_sts_task(self, item):
         self.current_tasks = item
         one_task_student = student_task_sh(self.current_user.data(0), self.current_tasks.data(0))
@@ -303,7 +312,9 @@ class AdminPanel(object):
         self.taskdone.setText(one_task_student[0][2])
         self.username.setText(one_task_student[0][5])
 
-    
+    #st_tasks (main_db.py def student_tasks)
+    #st_tasks (main_db.py import st_tasks)
+    #tasks list refresh - button --> line = 273
     def task_refresh_btn(self):
         self.taskslist.clear()
         st_tasks = student_tasks(self.current_user.data(0))
@@ -312,6 +323,7 @@ class AdminPanel(object):
 
 
 
+    #change student task - button --> line = 267
     def change_task_btn(self):
         username = self.username.text()
         titletxt = self.titletxt.text()
@@ -323,7 +335,7 @@ class AdminPanel(object):
 
 
 
-
+    # delete student task - button --> line = 276
     def delete_task_btn(self):
         username = self.current_user.data(0)
         title = self.current_tasks.data(0)
@@ -331,7 +343,7 @@ class AdminPanel(object):
 
 
 
-
+    #button backbtn --> line = 263
     def backbutton(self):
         from adminlogin import AdminLoginPanel
         self.MainWindow = QtWidgets.QMainWindow()
@@ -340,11 +352,15 @@ class AdminPanel(object):
         self.MainWindow.show()
 
 
+
+    #admin add new student - button --> line = 279
     def add_student_btn(self):
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = Admin_St_Register()
         self.ui.setupUi (self.MainWindow)
         self.MainWindow.show()
+
+
 
 
 

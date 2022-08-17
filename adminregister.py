@@ -148,14 +148,18 @@ class AdminRegisterPanel(object):
         self.prolanguage.setPlaceholderText(_translate("MainWindow", "programing language"))
 
 
+        #admin register - button --> def registerbutton line = 163
         self.registerbtn.clicked.connect(self.registerbutton)
         self.registerbtn.clicked.connect(MainWindow.close)
 
 
+        #back-button --> def backbutton line = 185
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
 
+    #admin_register_db (main_db.py import admin_register_db)
+    #button registerbtn --> line = 152
     def registerbutton(self, values_1):
         username = self.username.text()
         first_name = self.firstname.text()
@@ -177,12 +181,16 @@ class AdminRegisterPanel(object):
 
 
 
+    #button backbtn --> line = 157
     def backbutton(self):
         from adminfirst import AdminFirstPage
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = AdminFirstPage()
         self.ui.setupUi (self.MainWindow)
         self.MainWindow.show()
+
+
+
 
 
 if __name__ == "__main__":

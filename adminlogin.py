@@ -108,15 +108,18 @@ class AdminLoginPanel(object):
         self.password.setPlaceholderText(_translate("MainWindow", "password"))
 
 
-
+        #admin-login-button --> def loginbutton line = 121
         self.loginbtn.clicked.connect(self.loginbutton)
         self.loginbtn.clicked.connect(MainWindow.close)
 
+        #back-button --> def backbutton line = 137
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
 
-
+    #admin_dict --> (main_db.py def admin_login)
+    #admin_dict --> (main_db.py import admin_dict ) 
+    #button loginbutton --> line = 112
     def loginbutton(self):
         if admin_dict.get(self.username.text(), None) == self.password.text():
             self.MainWindow = QtWidgets.QMainWindow()
@@ -130,7 +133,7 @@ class AdminLoginPanel(object):
             self.MainWindow.show()
 
 
-
+    #button backbutton --> line 116
     def backbutton(self):
         from adminfirst import AdminFirstPage
         self.MainWindow = QtWidgets.QMainWindow()

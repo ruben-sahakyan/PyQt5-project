@@ -127,11 +127,11 @@ class Admin_St_Register(object):
         self.prolanguage.setPlaceholderText(_translate("MainWindow", "programing language"))
 
 
-
+        #new student register - button --> def register_btn line = 135
         self.registerbtn.clicked.connect(self.register_btn)
 
-
-
+    #student_register_db (main_db.py import student_register_db)
+    #button registerbtn --> line = 131
     def register_btn(self, values):
         username = self.username.text()
         first_name = self.firstname.text()
