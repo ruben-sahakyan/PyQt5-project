@@ -148,16 +148,18 @@ class StudentRegisterPage(object):
         self.prolanguage.setPlaceholderText(_translate("MainWindow", "programing language"))
 
 
-
+        #student register - button --> def registerbutton line = 163
         self.registerbtn.clicked.connect(self.registerbutton)
         self.registerbtn.clicked.connect(MainWindow.close)
         
         
+        #back - button --> def backbutton line = 185
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
 
-
+    #student_register_db (main_db.py import student_register_db)
+    #button registerbtn --> line = 152
     def registerbutton(self, values):
         username = self.username.text()
         first_name = self.firstname.text()
@@ -179,6 +181,7 @@ class StudentRegisterPage(object):
 
 
 
+    #button backbtn --> line = 157
     def backbutton(self):
         from studentfirst import StudentFirstPage
         self.MainWindow = QtWidgets.QMainWindow()

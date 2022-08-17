@@ -103,19 +103,23 @@ class StudentFirstPage(object):
         self.label_2.setText(_translate("MainWindow", "login or create your account"))
 
 
+        #student login - button --> def loginbutton line = 123
         self.loginbtn.clicked.connect(self.loginbutton)
         self.loginbtn.clicked.connect(MainWindow.close)
 
 
+        #student register - button --> def registerbutton line = 132
         self.registerbtn.clicked.connect(self.registerbutton)
         self.registerbtn.clicked.connect(MainWindow.close)
 
 
+        #back-button --> def backbutton line = 141
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
 
 
+    #button loginbtn --> line = 107
     def loginbutton(self):
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = StudentLoginPage()
@@ -123,6 +127,8 @@ class StudentFirstPage(object):
         self.MainWindow.show()
 
 
+
+    #button registerbtn --> line = 112
     def registerbutton(self):
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = StudentRegisterPage()
@@ -130,12 +136,17 @@ class StudentFirstPage(object):
         self.MainWindow.show()
 
 
+
+    #button backbtn --> line = 117
     def backbutton(self):
         from firstpage import FirstPage
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = FirstPage()
         self.ui.setupUi (self.MainWindow)
         self.MainWindow.show()
+
+
+
 
 
 if __name__ == "__main__":

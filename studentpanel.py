@@ -211,17 +211,22 @@ class StudentPanel(object):
         self.assessmenttext.setPlaceholderText(_translate("MainWindow", "assessment"))
 
 
-
+        #add task - button --> def add_task line = 230
         self.addtaskbtn.clicked.connect(self.add_task)
         self.addtaskbtn.clicked.connect(MainWindow.close)
 
+
+        #tasks list refresh - button --> def task_refresh line = 252
         self.taskrefreshbtn.clicked.connect(self.task_refresh)
 
+
+        #back-button --> def back_button line = 275
         self.backbtn.clicked.connect(self.back_button)
         self.backbtn.clicked.connect(MainWindow.close)
 
 
-
+    #tasks_done_db (main_db.py import tasks_done_db)
+    #button loginbtn --> line = 107
     def add_task(self, values_2):
         username = self.username.text()
         title = self.titletxt.text()
@@ -243,6 +248,7 @@ class StudentPanel(object):
 
 
 
+    #button task_refresh --> line = 220
     def task_refresh(self):
         self.taskslist.clear()
         user = settings.user[0]
@@ -252,6 +258,8 @@ class StudentPanel(object):
         self.taskslist.itemDoubleClicked.connect(self.one_task)
 
 
+
+    #button Double clicked (def task_refresh)  --> line = 258
     def one_task(self, item):
         self.current_user = item
         one_task_student = student_task_sh(settings.user[0], self.current_user.data(0))
@@ -263,7 +271,7 @@ class StudentPanel(object):
 
 
 
-
+    #button back_button --> line = 224
     def back_button(self):
         from studentlogin import StudentLoginPage
         self.MainWindow = QtWidgets.QMainWindow()

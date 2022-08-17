@@ -108,13 +108,18 @@ class StudentLoginPage():
         self.password.setPlaceholderText(_translate("MainWindow", "password"))
 
 
+        #student login - button --> def loginbutton line = 123
         self.loginbtn.clicked.connect(self.loginbutton)
         self.loginbtn.clicked.connect(MainWindow.close)
 
+
+        #back-button --> def backbutton line = 140
         self.backbtn.clicked.connect(self.backbutton)
         self.backbtn.clicked.connect(MainWindow.close)
 
-
+    #settings.user (settings.py import)
+    #check_login (main_db.py import check_login)
+    #button loginbtn --> line = 112
     def loginbutton(self):
         if check_login(self.username.text(),self.password.text()):
             settings.user = [self.username.text(),self.password.text()]
@@ -130,13 +135,16 @@ class StudentLoginPage():
             self.MainWindow.show()
 
 
-            
+
+    #button backbtn --> line = 117
     def backbutton(self):
         from studentfirst import StudentFirstPage
         self.MainWindow = QtWidgets.QMainWindow()
         self.ui = StudentFirstPage()
         self.ui.setupUi (self.MainWindow)
         self.MainWindow.show()
+
+
 
 
 
