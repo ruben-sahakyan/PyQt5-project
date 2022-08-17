@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from studentpanel import StudentPanel
 from main_db import student_register_db
-
+from studentlogin import StudentLoginPage
 
 
 class StudentRegisterPage(object):
@@ -173,7 +173,7 @@ class StudentRegisterPage(object):
             self.MainWindow.show()
         else:
             self.MainWindow = QtWidgets.QMainWindow()
-            self.ui = StudentPanel()
+            self.ui = StudentLoginPage()
             self.ui.setupUi (self.MainWindow)
             self.MainWindow.show()
             values = (username, first_name, last_name, programing_language, password)
